@@ -25,3 +25,11 @@ Route::group(['prefix' => 'categories'], function () {
     Route::put('/{category}', 'App\Http\Controllers\CategoryController@update');
     Route::delete('/{category}', 'App\Http\Controllers\CategoryController@destroy');
     });
+
+Route::group(['prefix' => 'stacks'], function () {
+    Route::get('/', 'App\Http\Controllers\StackController@index');
+    Route::post('/', 'App\Http\Controllers\StackController@store');
+    Route::get('/{stack}', 'App\Http\Controllers\StackController@show');
+    Route::put('/{stack}', 'App\Http\Controllers\StackController@update');
+    Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
+    });
