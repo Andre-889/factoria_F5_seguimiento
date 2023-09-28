@@ -29,7 +29,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-      
         $category = new Category;
         $category->name = $request->name;
         $category->save();
@@ -52,9 +51,12 @@ class CategoryController extends Controller
         return response()->json($category, 200); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // public function show(Book $book)
+    // {
+    //     return response()->json($book);
+    // }
+
+
     public function edit(Category $category)
     {
         //
@@ -63,22 +65,16 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-       
-        $category = Category::find($id);
-        if (!$category) {
-            return response()->json(['message' => 'No se encontró la categoría'], 404); 
-        }
-
-        $request->validate([
-            'name' => 'string',
-        ]);
-       
-        $category->update($request->all());
-        return response()->json($category, 200); 
+        $category->name = $request->name;
+        $category->save();
+        $data = [
+            'message'=> 'Category Updated successfully',
+            'category'=> $category
+        ];
+        return response()->json($data);
     }
-
     /**
      * Remove the specified resource from storage.
      */
