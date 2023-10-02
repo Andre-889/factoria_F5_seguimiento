@@ -33,10 +33,10 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
         $data = [
-            'message' => 'Created category successfully',
+            'message' => 'Category successfully created',
             'category' => $category
         ];
-        return response()->json($data);
+        return response()->json($data, 201);
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id); 
         if (!$category) {
-            return response()->json(['message' => 'No se encontró la categoría'], 404); 
+            return response()->json(['message' => 'Category not found'], 404); 
         }
         return response()->json($category, 200); 
     }
@@ -70,10 +70,10 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
         $data = [
-            'message'=> 'Category Updated successfully',
+            'message'=> 'Category successfully updated',
             'category'=> $category
         ];
-        return response()->json($data);
+        return response()->json($data, 200);
     }
     /**
      * Remove the specified resource from storage.
@@ -83,11 +83,11 @@ class CategoryController extends Controller
        
         $category = Category::find($id);
         if (!$category) {
-            return response()->json(['message' => 'No se encontró la categoría'], 404); 
+            return response()->json(['message' => 'Category not found'], 404); 
         }
 
         $category->delete();
-        return response()->json(['message' => 'Categoría eliminada'], 204);
+        return response()->json(['message' => 'Category successfully deleted'], 204);
     }
 }
 
