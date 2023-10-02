@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Stack extends Model
 {
     use HasFactory;
+
+    public function personStack(){
+
+        return $this->belongsToMany(PersonStack::class);
+
+    }
     
 }

@@ -42,7 +42,7 @@ class StackController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Stack $stack)
+    public function show($id)
     {
         $stack = Stack::find($id); 
         if (!$stack) {
