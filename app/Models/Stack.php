@@ -12,6 +12,7 @@ class Stack extends Model
     public function personStack(){
 
         return $this->belongsToMany(PersonStack::class);
+        
 
     }
     
