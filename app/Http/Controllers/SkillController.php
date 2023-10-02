@@ -32,6 +32,7 @@ class SkillController extends Controller
         $skill = new Skill;
         $skill->name=$request->name;
         $skill->category_id=$request->category_id;
+        $skill->save();
         $data = [
             'message' => 'Skill successfully created',
             'skill' => $skill
@@ -45,7 +46,7 @@ class SkillController extends Controller
     public function show($id)
     {
         $skill = Skill::find($id);
-        if (!$skill){
+        if (!$skill) {
             return response()->json(['message' => 'Skill not found'],  404);
         }
         return response()->json($skill, 200);
@@ -77,14 +78,18 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Skill $id)
+    public function destroy( $id)
     {
         $skill = Skill::find($id);
         if(!$skill) {
             return response()->json(['message'=> 'Skill not found'], 404);
         }
 
-        $skill->deleted();
-        return response()->json(['message' => 'Skill successfully deleted'], 204);
+        $skill->delete();
+        $data = [
+            'message' => 'Skill deleted successfully',
+            'skill' => $skill
+        ];
+        return response()->json($data);
     }
 }
