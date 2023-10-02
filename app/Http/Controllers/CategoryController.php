@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category=Category::all();
+        $category=Category::with('skills')->get();
         return response()->json($category, 200);
     }
 
@@ -44,7 +44,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id); 
+        $category = Category::with('skills')->find($id); 
         if (!$category) {
             return response()->json(['message' => 'Category not found'], 404); 
         }
@@ -80,6 +80,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+
         $category = Category::find($id);
         if (!$category) {
             return response()->json(['message' => 'Category not found'], 404); 

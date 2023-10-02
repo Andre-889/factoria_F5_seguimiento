@@ -12,7 +12,7 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skill = Skill::all();
+        $skill = Skill::with('category')->get();
         return response()->json($skill, 200);
     }
 
@@ -45,7 +45,7 @@ class SkillController extends Controller
      */
     public function show($id)
     {
-        $skill = Skill::find($id);
+        $skill = Skill::with('category')->find($id);
         if (!$skill) {
             return response()->json(['message' => 'Skill not found'],  404);
         }

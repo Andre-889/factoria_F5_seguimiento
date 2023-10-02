@@ -12,7 +12,7 @@ class Category extends Model
     use HasFactory;
     public $timestamps = false;
 
-    public function Skills():HasMany
+    public function skills():HasMany
     {
 
         return $this->hasMany(Skill::class); 
