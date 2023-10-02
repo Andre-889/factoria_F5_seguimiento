@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PersonStackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,12 @@ Route::group(['prefix' => 'stacks'], function () {
     Route::get('/{stack}', 'App\Http\Controllers\StackController@show');
     Route::put('/{stack}', 'App\Http\Controllers\StackController@update');
     Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
+    });
+
+Route::group(['prefix' => 'personStack'], function () {
+    Route::get('/', 'App\Http\Controllers\PersonStackController@index');
+    Route::post('/', 'App\Http\Controllers\PersonStackController@store');
+    Route::get('/{personStack}', 'App\Http\Controllers\PersonStackController@show');
+    Route::put('/{personStack}', 'App\Http\Controllers\PersonStackController@update');
+    Route::delete('/{personStack}', 'App\Http\Controllers\PersonStackController@destroy');
     });
