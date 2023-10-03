@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('coder_feedbacks', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->text('text');
-            $table->bigInteger('person_id');
-            $table->bigInteger('user_id');
-            $table->date('date');
+            $table->bigInteger('person_id')->unique();
+            $table->bigInteger('user_id')->unique();
+            $table->date('date')->nullable();
             $table->text('observations');
             $table->text('improve');
             $table->timestamps();

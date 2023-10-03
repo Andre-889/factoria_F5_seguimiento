@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('person_stack', function (Blueprint $table) {
         
             $table->id()->autoIncrement();
-            $table->bigInteger('person_id');
+            $table->bigInteger('person_id')->unique();
 
             $table->unsignedBigInteger('stack_id');
             $table->foreign('stack_id')->references('id')->on('stacks');
