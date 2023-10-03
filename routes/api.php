@@ -58,3 +58,10 @@ Route::group(['prefix' => 'coder_feedbacks'], function () {
     Route::put('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@update');
     Route::delete('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
 });
+Route::group(['prefix' => 'professional_informations'], function () {
+    Route::get('/', 'App\Http\Controllers\ProfessionalInformationController@index');
+    Route::post('/', 'App\Http\Controllers\ProfessionalInformationController@store');
+    Route::get('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@show');
+    Route::put('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@update');
+    Route::delete('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@destroy');
+});

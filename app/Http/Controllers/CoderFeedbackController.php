@@ -80,7 +80,7 @@ class CoderFeedbackController extends Controller
             'message' => 'Coder Feedback successfully updated',
             'coder_feedback' => $coder_feedback
         ];
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
 
@@ -96,7 +96,7 @@ class CoderFeedbackController extends Controller
         }
         $coder_feedback->delete();
         $data = [
-            'message' => 'Coder Feedback succesfully deleted',
+            'message' => 'Coder Feedback successfully deleted',
             'coder_feedback' => $coder_feedback
         ];
         return response()->json($data, 200);

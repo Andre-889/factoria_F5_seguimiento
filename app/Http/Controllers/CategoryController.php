@@ -51,11 +51,6 @@ class CategoryController extends Controller
         return response()->json($category, 200); 
     }
 
-    // public function show(Book $book)
-    // {
-    //     return response()->json($book);
-    // }
-
 
     public function edit(Category $category)
     {
