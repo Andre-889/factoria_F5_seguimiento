@@ -12,7 +12,7 @@ class StackController extends Controller
      */
     public function index()
     {
-        $stack=Stack::all();
+        $stack = Stack::all();
         return response()->json($stack, 200);
     }
 
