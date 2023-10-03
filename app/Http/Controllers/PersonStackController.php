@@ -10,7 +10,7 @@ class PersonStackController extends Controller
 {
     public function index()
     {
-        $personStacks = PersonStack::all();
+        $personStacks=PersonStack::with('stacks')->get();
         return response()->json($personStacks, 200);
     }
 
@@ -31,8 +31,9 @@ class PersonStackController extends Controller
         return response()->json($data, 201);
     }
 
-    public function show(PersonStack $personStack)
+    public function show( $id)
     {
+        $personStack = PersonStack::with('stacks')->find($id);
         return response()->json($personStack, 200);
     }
 
