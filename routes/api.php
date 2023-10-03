@@ -33,7 +33,7 @@ Route::group(['prefix' => 'stacks'], function () {
     Route::get('/{stack}', 'App\Http\Controllers\StackController@show');
     Route::put('/{stack}', 'App\Http\Controllers\StackController@update');
     Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
-    });
+});
 
 Route::group(['prefix' => 'personStack'], function () {
     Route::get('/', 'App\Http\Controllers\PersonStackController@index');
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'personStack'], function () {
     Route::get('/{personStack}', 'App\Http\Controllers\PersonStackController@show');
     Route::put('/{personStack}', 'App\Http\Controllers\PersonStackController@update');
     Route::delete('/{personStack}', 'App\Http\Controllers\PersonStackController@destroy');
-    });
+});
 
 Route::group(['prefix' => 'skills'], function () {
     Route::get('/', 'App\Http\Controllers\SkillController@index');
@@ -49,4 +49,12 @@ Route::group(['prefix' => 'skills'], function () {
     Route::get('/{skill}', 'App\Http\Controllers\SkillController@show');
     Route::put('/{skill}', 'App\Http\Controllers\SkillController@update');
     Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');
-    });
+});
+
+Route::group(['prefix' => 'coderFeedbacks'], function () {
+    Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index');
+    Route::post('/', 'App\Http\Controllers\CoderFeedbackController@store');
+    Route::get('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@show');
+    Route::put('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@update');
+    Route::delete('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
+});

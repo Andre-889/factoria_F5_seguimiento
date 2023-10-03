@@ -88,10 +88,10 @@ class CategoryController extends Controller
 
         $category->delete();
         $data = [
-            'message' => 'Category deleted successfully',
+            'message' => 'Category successfully deleted',
             'category' => $category
         ];
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 }
 
