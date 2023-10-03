@@ -51,10 +51,10 @@ Route::group(['prefix' => 'skills'], function () {
     Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');
 });
 
-Route::group(['prefix' => 'coderFeedbacks'], function () {
+Route::group(['prefix' => 'coder_feedbacks'], function () {
     Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index');
     Route::post('/', 'App\Http\Controllers\CoderFeedbackController@store');
-    Route::get('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@show');
-    Route::put('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@update');
-    Route::delete('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
+    Route::get('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@show');
+    Route::put('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@update');
+    Route::delete('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
 });
