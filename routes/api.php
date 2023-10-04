@@ -48,8 +48,8 @@ Route::group(['prefix' => 'skills'], function () {
     Route::post('/', 'App\Http\Controllers\SkillController@store');
     Route::get('/{skill}', 'App\Http\Controllers\SkillController@show');
     Route::put('/{skill}', 'App\Http\Controllers\SkillController@update');
-    Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');
-});
+    Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');});
+
 
 Route::group(['prefix' => 'coder_feedbacks'], function () {
     Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index');
@@ -64,4 +64,12 @@ Route::group(['prefix' => 'professional_informations'], function () {
     Route::get('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@show');
     Route::put('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@update');
     Route::delete('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@destroy');
+});
+
+Route::group(['prefix' => 'personSkills'], function () {
+    Route::get('/', 'App\Http\Controllers\PersonSkillController@index');
+    Route::post('/', 'App\Http\Controllers\PersonSkillController@store');
+    Route::get('/{personSkill}', 'App\Http\Controllers\PersonSkillController@show');
+    Route::put('/{personSkill}', 'App\Http\Controllers\PersonSkillController@update');
+    Route::delete('/{personSkill}', 'App\Http\Controllers\PersonSkillController@destroy');
 });
