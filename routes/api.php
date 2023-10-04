@@ -42,3 +42,11 @@ Route::group(['prefix' => 'personStack'], function () {
     Route::put('/{personStack}', 'App\Http\Controllers\PersonStackController@update');
     Route::delete('/{personStack}', 'App\Http\Controllers\PersonStackController@destroy');
     });
+
+Route::group(['prefix' => 'personalInformation'], function () {
+    Route::get('/', 'App\Http\Controllers\PersonalInformationController@index');
+    Route::post('/', 'App\Http\Controllers\PersonalInformationController@store');
+    Route::get('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@show');
+    Route::put('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@update');
+    Route::delete('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@destroy');
+    });
