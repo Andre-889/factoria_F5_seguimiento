@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Person_skill;
+use App\Models\PersonSkill;
 use Illuminate\Http\Request;
 
 class PersonSkillController extends Controller
@@ -12,8 +12,8 @@ class PersonSkillController extends Controller
      */
     public function index()
     {
-        $person_skill = Person_Skill::all();
-        return response()->json($person_skill, 200);
+        $personSkill = PersonSkill::all();
+        return response()->json($personSkill, 200);
     }
 
     /**
@@ -29,14 +29,14 @@ class PersonSkillController extends Controller
      */
     public function store(Request $request)
     {
-        $person_skill = new Person_skill;
-        $person_skill->person_id = $request->person_id;
-        $person_skill->skill_id = $request->skill_id;
-        $person_skill->level = $request->level;
-        $person_skill->save();
+        $personSkill = new PersonSkill;
+        $personSkill->person_id = $request->person_id;
+        $personSkill->skill_id = $request->skill_id;
+        $personSkill->level = $request->level;
+        $personSkill->save();
         $data = [
             'message'=>'Person Skill succesfully created',
-            'person_skill' =>$person_skill
+            'person_skill' =>$personSkill
         ];
         return response()->json($data, 201);
     }
@@ -46,17 +46,17 @@ class PersonSkillController extends Controller
      */
     public function show($id)
     {
-        $person_skill = Person_skill::find($id);
-        if (!$person_skill) {
+        $personSkill = PersonSkill::find($id);
+        if (!$personSkill) {
             return response()->json(['message'=> 'Person Skill not found'], 404);
         }
-        return response()->json($person_skill, 200);
+        return response()->json($personSkill, 200);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Person_skill $person_skill)
+    public function edit(PersonSkill $personSkill)
     {
         //
     }
@@ -64,15 +64,15 @@ class PersonSkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Person_skill $person_skill)
+    public function update(Request $request, PersonSkill $personSkill)
     {
-        $person_skill->person_id = $request->person_id;
-        $person_skill->skill_id = $request->skill_id;
-        $person_skill->level = $request->level;
-        $person_skill->save();
+        $personSkill->person_id = $request->person_id;
+        $personSkill->skill_id = $request->skill_id;
+        $personSkill->level = $request->level;
+        $personSkill->save();
         $data = [
             'message' => 'Person Skill succesfully updated',
-            'person_skill'=> $person_skill
+            'person_skill'=> $personSkill
         ];
         return response()->json($data, 200);
     }
@@ -82,14 +82,14 @@ class PersonSkillController extends Controller
      */
     public function destroy($id)
     {
-        $person_skill = Person_skill::find($id);
-        if (!$person_skill) {
+        $personSkill = PersonSkill::find($id);
+        if (!$personSkill) {
             return response()->json(['message'=> 'Person Skill not found'], 404);
         }
-        $person_skill->delete();
+        $personSkill->delete();
         $data = [
             'message'=> 'Person Skill succesfully deleted',
-            'person_id'=> $person_skill
+            'person_skill'=> $personSkill
         ];
         return response()->json($data, 200);
     }
