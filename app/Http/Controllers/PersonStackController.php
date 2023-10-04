@@ -24,7 +24,7 @@ class PersonStackController extends Controller
         $personStack->save();
 
         $data = [
-            'message' => 'Created person_stack successfully',
+            'message' => 'Person stack successfully created',
             'person_stack' => $personStack
         ];
 
@@ -45,11 +45,11 @@ class PersonStackController extends Controller
         $personStack->save();
 
         $data = [
-            'message' => 'Person_stack updated successfully',
+            'message' => 'Person stack  successfully updated',
             'person_stack' => $personStack
         ];
 
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
     public function destroy(PersonStack $personStack)
@@ -57,11 +57,11 @@ class PersonStackController extends Controller
         $personStack->delete();
 
         $data = [
-            'message' => 'Person_stack deleted successfully',
+            'message' => 'Person stack successfully deleted',
             'person_stack' => $personStack
         ];
 
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
 }

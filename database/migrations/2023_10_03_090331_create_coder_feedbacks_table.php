@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('person_stack', function (Blueprint $table) {
-        
+        Schema::create('coder_feedbacks', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->bigInteger('person_id')->unique();
-
-            $table->unsignedBigInteger('stack_id');
-            $table->foreign('stack_id')->references('id')->on('stacks');
-
-            $table->string('level');
-
-            $table->timestamps();           
-            
+            $table->text('text');
+            $table->bigInteger('person_id');
+            $table->bigInteger('user_id');
+            $table->date('date')->nullable();
+            $table->text('observations');
+            $table->text('improve');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('person_stack');
+        Schema::dropIfExists('coder_feedbacks');
     }
 };

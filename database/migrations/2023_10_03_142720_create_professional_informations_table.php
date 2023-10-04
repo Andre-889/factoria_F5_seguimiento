@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('person_stack', function (Blueprint $table) {
-        
+        Schema::create('professional_informations', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->string('cv')->nullable();
             $table->bigInteger('person_id')->unique();
-
-            $table->unsignedBigInteger('stack_id');
-            $table->foreign('stack_id')->references('id')->on('stacks');
-
-            $table->string('level');
-
-            $table->timestamps();           
-            
+            $table->boolean('is_working');
+            $table->string('linkedin')->nullable();
+            $table->boolean('is_studying');
+            $table->boolean('next_bootcamp');
+            $table->string('github')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('person_stack');
+        Schema::dropIfExists('professional_informations');
     }
 };

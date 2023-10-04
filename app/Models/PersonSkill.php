@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class PersonSkill extends Model
 {
     use HasFactory;
-    public $timestamps = false;
-
-    public function skills():HasMany
+    public function skills(): HasMany 
     {
-
-        return $this->hasMany(Skill::class); 
+        return $this->hasMany(Skill::class);
     }
 }

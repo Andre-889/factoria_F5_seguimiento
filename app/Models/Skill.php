@@ -7,14 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class Skill extends Model
 {
     use HasFactory;
-    public $timestamps = false;
 
-    public function skills():HasMany
+    public function category():BelongsTo
     {
 
-        return $this->hasMany(Skill::class); 
+        return $this->belongsTo(Category::class);
+    }
+    public function person_skill(): BelongsTo
+    {
+        return $this->belongsTo(Person_skill::class);
     }
 }

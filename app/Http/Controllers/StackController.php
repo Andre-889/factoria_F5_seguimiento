@@ -33,7 +33,7 @@ class StackController extends Controller
         $stack->name = $request->name;
         $stack->save();
         $data = [
-            'message' => 'Created stack successfully',
+            'message' => 'Stack successfully created',
             'stack' => $stack
         ];
         return response()->json($data, 201);
@@ -46,7 +46,7 @@ class StackController extends Controller
     {
         $stack = Stack::find($id); 
         if (!$stack) {
-            return response()->json(['message' => 'No find the stack'], 404); 
+            return response()->json(['message' => 'Stack not found'], 404); 
         }
         return response()->json($stack, 200);
     }
@@ -67,10 +67,10 @@ class StackController extends Controller
         $stack->name = $request->name;
         $stack->save();
         $data = [
-            'message'=> 'Stack Updated successfully',
+            'message'=> 'Stack successfully updated',
             'stack'=> $stack
         ];
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
     /**
@@ -84,7 +84,7 @@ class StackController extends Controller
             'stack' => $stack
         ];
         
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
 }
