@@ -50,3 +50,11 @@ Route::group(['prefix' => 'skills'], function () {
     Route::put('/{skill}', 'App\Http\Controllers\SkillController@update');
     Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');
     });
+
+Route::group(['prefix' => 'personSkills'], function () {
+    Route::get('/', 'App\Http\Controllers\PersonSkillController@index');
+    Route::post('/', 'App\Http\Controllers\PersonSkillController@store');
+    Route::get('/{person_skill}', 'App\Http\Controllers\PersonSkillController@show');
+    Route::put('/{person_skill}', 'App\Http\Controllers\PersonSkillController@update');
+    Route::delete('/{person_sill}', 'App\Http\Controllers\PersonSkillController@destroy');
+});

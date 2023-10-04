@@ -12,7 +12,8 @@ class PersonSkillController extends Controller
      */
     public function index()
     {
-        //
+        $person_skill = Person_Skill::all();
+        return response()->json($person_skill, 200);
     }
 
     /**
@@ -28,15 +29,28 @@ class PersonSkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $person_skill = new Person_skill;
+        $person_skill->person_id = $request->person_id;
+        $person_skill->skill_id = $request->skill_id;
+        $person_skill->level = $request->level;
+        $person_skill->save();
+        $data = [
+            'message'=>'Person Skill succesfully created',
+            'person_skill' =>$person_skill
+        ];
+        return response()->json($data, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Person_skill $person_skill)
+    public function show($id)
     {
-        //
+        $person_skill = Person_skill::find($id);
+        if (!$person_skill) {
+            return response()->json(['message'=> 'Person Skill not found'], 404);
+        }
+        return response()->json($person_skill, 200);
     }
 
     /**
@@ -52,14 +66,31 @@ class PersonSkillController extends Controller
      */
     public function update(Request $request, Person_skill $person_skill)
     {
-        //
+        $person_skill->person_id = $request->person_id;
+        $person_skill->skill_id = $request->skill_id;
+        $person_skill->level = $request->level;
+        $person_skill->save();
+        $data = [
+            'message' => 'Person Skill succesfully updated',
+            'person_skill'=> $person_skill
+        ];
+        return response()->json($data, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Person_skill $person_skill)
+    public function destroy($id)
     {
-        //
+        $person_skill = Person_skill::find($id);
+        if (!$person_skill) {
+            return response()->json(['message'=> 'Person Skill not found'], 404);
+        }
+        $person_skill->delete();
+        $data = [
+            'message'=> 'Person Skill succesfully deleted',
+            'person_id'=> $person_skill
+        ];
+        return response()->json($data, 200);
     }
 }
