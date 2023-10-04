@@ -50,3 +50,11 @@ Route::group(['prefix' => 'personalInformation'], function () {
     Route::put('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@update');
     Route::delete('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@destroy');
     });
+
+Route::group(['prefix' => 'projectsWorkshop'], function () {
+    Route::get('/', 'App\Http\Controllers\ProjectsWorkshopController@index');
+    Route::post('/', 'App\Http\Controllers\ProjectsWorkshopController@store');
+    Route::get('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@show');
+    Route::put('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@update');
+    Route::delete('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@destroy');
+    });
