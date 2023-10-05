@@ -90,3 +90,10 @@ Route::group(['prefix' => 'personSkills'], function () {
     Route::put('/{personSkill}', 'App\Http\Controllers\PersonSkillController@update');
     Route::delete('/{personSkill}', 'App\Http\Controllers\PersonSkillController@destroy');
 });
+Route::group(['prefix' => 'bootcampStacks'], function () {
+    Route::get('/', 'App\Http\Controllers\BootcampStackController@index');
+    Route::post('/', 'App\Http\Controllers\BootcampStackController@store');
+    Route::get('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@show');
+    Route::put('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@update');
+    Route::delete('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@destroy');
+});
