@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coder_feedback;
+use App\Models\CoderFeedback;
 use Illuminate\Http\Request;
 
 class CoderFeedbackController extends Controller
@@ -12,8 +12,8 @@ class CoderFeedbackController extends Controller
      */
     public function index()
     {
-        $coder_feedback = Coder_feedback::all();
-        return response()->json($coder_feedback, 200);
+        $coderFeedback = CoderFeedback::all();
+        return response()->json($coderFeedback, 200);
     }
 
     /**
@@ -29,17 +29,17 @@ class CoderFeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        $coder_feedback = new Coder_feedback;
-        $coder_feedback->text = $request->text;
-        $coder_feedback->person_id = $request->person_id;
-        $coder_feedback->user_id = $request->user_id;
-        $coder_feedback->date = $request->date;
-        $coder_feedback->observations = $request->observations;
-        $coder_feedback->improve = $request->improve;
-        $coder_feedback->save();
+        $coderFeedback = new CoderFeedback;
+        $coderFeedback->text = $request->text;
+        $coderFeedback->person_id = $request->person_id;
+        $coderFeedback->user_id = $request->user_id;
+        $coderFeedback->date = $request->date;
+        $coderFeedback->observations = $request->observations;
+        $coderFeedback->improve = $request->improve;
+        $coderFeedback->save();
         $data = [
             'message'=>'Coder Feedback successfully created',
-            'coder_feedback'=>$coder_feedback
+            'coder_feedback'=>$coderFeedback
         ];
         return response()->json($data, 201);
     }
@@ -49,17 +49,17 @@ class CoderFeedbackController extends Controller
      */
     public function show($id)
     {
-        $coder_feedback = Coder_feedback::find($id);
-        if (!$coder_feedback) {
+        $coderFeedback = CoderFeedback::find($id);
+        if (!$coderFeedback) {
             return response()->json(['message' => 'Coder Feedbacks not found'], 404);
         }
-        return response()->json($coder_feedback, 200);
+        return response()->json($coderFeedback, 200);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Coder_feedback $coder_feedback)
+    public function edit(CoderFeedback $coderFeedback)
     {
         //
     }
@@ -67,18 +67,18 @@ class CoderFeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coder_feedback $coder_feedback)
+    public function update(Request $request, CoderFeedback $coderFeedback)
     {
-        $coder_feedback->text=$request->text;
-        $coder_feedback->person_id=$request->person_id;
-        $coder_feedback->user_id=$request->user_id;
-        $coder_feedback->date=$request->date;
-        $coder_feedback->observations=$request->observations;
-        $coder_feedback->improve=$request->improve;
-        $coder_feedback->save();
+        $coderFeedback->text=$request->text;
+        $coderFeedback->person_id=$request->person_id;
+        $coderFeedback->user_id=$request->user_id;
+        $coderFeedback->date=$request->date;
+        $coderFeedback->observations=$request->observations;
+        $coderFeedback->improve=$request->improve;
+        $coderFeedback->save();
         $data = [
             'message' => 'Coder Feedback successfully updated',
-            'coder_feedback' => $coder_feedback
+            'coder_feedback' => $coderFeedback
         ];
         return response()->json($data, 200);
     }
@@ -90,14 +90,14 @@ class CoderFeedbackController extends Controller
      */
     public function destroy($id)
     {
-        $coder_feedback = Coder_feedback::find($id);
-        if (!$coder_feedback) {
+        $coderFeedback = CoderFeedback::find($id);
+        if (!$coderFeedback) {
             return response()->json(['message'=> 'Coder Feedback not found'], 404);
         }
-        $coder_feedback->delete();
+        $coderFeedback->delete();
         $data = [
             'message' => 'Coder Feedback successfully deleted',
-            'coder_feedback' => $coder_feedback
+            'coder_feedback' => $coderFeedback
         ];
         return response()->json($data, 200);
     }
