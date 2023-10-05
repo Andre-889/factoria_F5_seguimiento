@@ -68,19 +68,19 @@ Route::group(['prefix' => 'skills'], function () {
     Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');});
 
 
-Route::group(['prefix' => 'coder_feedbacks'], function () {
+Route::group(['prefix' => 'coderFeedbacks'], function () {
     Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index');
     Route::post('/', 'App\Http\Controllers\CoderFeedbackController@store');
-    Route::get('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@show');
-    Route::put('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@update');
-    Route::delete('/{coder_feedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
+    Route::get('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@show');
+    Route::put('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@update');
+    Route::delete('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
 });
-Route::group(['prefix' => 'professional_informations'], function () {
+Route::group(['prefix' => 'professionalInformations'], function () {
     Route::get('/', 'App\Http\Controllers\ProfessionalInformationController@index');
     Route::post('/', 'App\Http\Controllers\ProfessionalInformationController@store');
-    Route::get('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@show');
-    Route::put('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@update');
-    Route::delete('/{professional_information}', 'App\Http\Controllers\ProfessionalInformationController@destroy');
+    Route::get('/{professionalInformation}', 'App\Http\Controllers\ProfessionalInformationController@show');
+    Route::put('/{professionalInformation}', 'App\Http\Controllers\ProfessionalInformationController@update');
+    Route::delete('/{professionalInformation}', 'App\Http\Controllers\ProfessionalInformationController@destroy');
 });
 
 Route::group(['prefix' => 'personSkills'], function () {
