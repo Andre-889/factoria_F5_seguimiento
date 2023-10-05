@@ -32,4 +32,11 @@ Route::group(['prefix' => 'stacks'], function () {
     Route::get('/{stack}', 'App\Http\Controllers\StackController@show');
     Route::put('/{stack}', 'App\Http\Controllers\StackController@update');
     Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
-    });
+});
+Route::group(['prefix' => 'bootcampStacks'], function () {
+    Route::get('/', 'App\Http\Controllers\BootcampStackController@index');
+    Route::post('/', 'App\Http\Controllers\BootcampStackController@store');
+    Route::get('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@show');
+    Route::put('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@update');
+    Route::delete('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@destroy');
+});

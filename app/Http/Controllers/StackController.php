@@ -42,7 +42,7 @@ class StackController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Stack $stack)
+    public function show($id)
     {
         $stack = Stack::find($id); 
         if (!$stack) {
@@ -84,7 +84,7 @@ class StackController extends Controller
             'stack' => $stack
         ];
         
-        return response()->json($data);
+        return response()->json($data, 200);
     }
 
 }
