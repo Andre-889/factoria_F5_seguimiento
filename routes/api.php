@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PersonStackController;
+use App\Http\Controllers\EvaluationStackController;
+use App\Http\Controllers\EvaluationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +37,21 @@ Route::group(['prefix' => 'stacks'], function () {
     Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
 });
 
-Route::group(['prefix' => 'personStack'], function () {
-    Route::get('/', 'App\Http\Controllers\PersonStackController@index');
-    Route::post('/', 'App\Http\Controllers\PersonStackController@store');
-    Route::get('/{personStack}', 'App\Http\Controllers\PersonStackController@show');
-    Route::put('/{personStack}', 'App\Http\Controllers\PersonStackController@update');
-    Route::delete('/{personStack}', 'App\Http\Controllers\PersonStackController@destroy');
+Route::group(['prefix' => 'evaluations'], function () {
+    Route::get('/', 'App\Http\Controllers\EvaluationController@index');
+    Route::post('/', 'App\Http\Controllers\EvaluationController@store');
+    Route::get('/{evaluation}', 'App\Http\Controllers\EvaluationController@show');
+    Route::put('/{evaluation}', 'App\Http\Controllers\EvaluationController@update');
+    Route::delete('/{evaluation}', 'App\Http\Controllers\EvaluationController@destroy');
+    });
+    
+
+Route::group(['prefix' => 'evaluationStack'], function () {
+    Route::get('/', 'App\Http\Controllers\EvaluationStackController@index');
+    Route::post('/', 'App\Http\Controllers\EvaluationStackController@store');
+    Route::get('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@show');
+    Route::put('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@update');
+    Route::delete('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@destroy');
     });
 
 Route::group(['prefix' => 'personalInformation'], function () {
@@ -97,3 +108,5 @@ Route::group(['prefix' => 'bootcampStacks'], function () {
     Route::put('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@update');
     Route::delete('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@destroy');
 });
+
+

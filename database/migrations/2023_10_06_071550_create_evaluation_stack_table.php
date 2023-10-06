@@ -6,19 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
-        Schema::create('person_stack', function (Blueprint $table) {
+        Schema::create('evaluation_stack', function (Blueprint $table) {
         
             $table->id()->autoIncrement();
-            $table->bigInteger('person_id')->unique();
 
             $table->unsignedBigInteger('stack_id');
             $table->foreign('stack_id')->references('id')->on('stacks');
-
+            $table->unsignedBigInteger('evaluation_id');
+            $table->foreign('evaluation_id')->references('id')->on('evaluations');
             $table->string('level');
 
             $table->timestamps();           
@@ -26,11 +24,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('person_stack');
+        Schema::dropIfExists('evaluation_stack');
     }
 };
