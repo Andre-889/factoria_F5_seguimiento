@@ -14,12 +14,18 @@ class Stack extends Model
     public function evaluationStacks(): BelongsToMany
     {
         return $this->belongsToMany(EvaluationStack::class, 'evaluation_stack', 'stack_id', 'id')
-                    ->withPivot('level', 'person_id');
+                    ->withPivot('level');
     }
 
     public function bootcampStack(): BelongsToMany
     {
         return $this->belongsToMany(BootcampStack::class, 'bootcamp_stack', 'stack_id', 'id');
+    }
+
+    public function skills(): BelongsTo
+    {
+        return $this->belongsTo(Skill::class);
+                   
     }
     
 }

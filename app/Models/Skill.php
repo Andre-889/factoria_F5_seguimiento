@@ -15,8 +15,17 @@ class Skill extends Model
 
         return $this->belongsTo(Category::class);
     }
+
     public function person_skill(): BelongsTo
     {
         return $this->belongsTo(Person_skill::class);
     }
+
+    public function stacks(): BelongsTo
+    {
+        return $this->belongsTo(Stack::class);
+                   
+    }
+    
+    
 }

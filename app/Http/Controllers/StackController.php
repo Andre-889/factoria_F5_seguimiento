@@ -31,6 +31,7 @@ class StackController extends Controller
     {
         $stack = new Stack;
         $stack->name = $request->name;
+        $stack->skill_id = $request->skill_id;
         $stack->save();
         $data = [
             'message' => 'Stack successfully created',
@@ -65,6 +66,7 @@ class StackController extends Controller
     public function update(Request $request, Stack $stack)
     {
         $stack->name = $request->name;
+        $stack->skill_id = $request->skill_id;
         $stack->save();
         $data = [
             'message'=> 'Stack successfully updated',
