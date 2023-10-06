@@ -11,9 +11,9 @@ class Stack extends Model
 {
     use HasFactory;
 
-    public function personStacks(): BelongsToMany
+    public function evaluationStacks(): BelongsToMany
     {
-        return $this->belongsToMany(PersonStack::class, 'person_stack', 'stack_id', 'id')
+        return $this->belongsToMany(EvaluationStack::class, 'evaluation_stack', 'stack_id', 'id')
                     ->withPivot('level', 'person_id');
     }
 
