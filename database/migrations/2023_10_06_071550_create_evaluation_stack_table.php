@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreign('stack_id')->references('id')->on('stacks');
             $table->unsignedBigInteger('evaluation_id');
             $table->foreign('evaluation_id')->references('id')->on('evaluations');
-            $table->string('level');
+            
+            $table->integer('level');
 
             $table->timestamps();           
             

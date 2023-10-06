@@ -16,7 +16,9 @@ return new class extends Migration
             $table->bigInteger('person_id');
             $table->unsignedBigInteger('skill_id');
             $table->foreign('skill_id')->references('id')->on('skills');
-            $table->string('level');
+
+            $table->integer('level');
+
             $table->timestamps();
         });
     }

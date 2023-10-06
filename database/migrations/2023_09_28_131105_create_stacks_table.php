@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('stacks', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name');
+
+            $table->unsignedBigInteger('skill_id');
+            $table->foreign('skill_id')->references('id')->on('skills');
+
             $table->timestamps();
         });
     }
