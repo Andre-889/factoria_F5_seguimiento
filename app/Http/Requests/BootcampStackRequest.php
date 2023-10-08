@@ -25,8 +25,8 @@ class BootcampStackRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'bootcamp_id' => 'required',
-            'stack_id' => 'required'
+            'bootcamp_id' => 'required|integer',
+            'stack_id' => 'required|integer'
         ];
         
     }
@@ -36,6 +36,8 @@ class BootcampStackRequest extends FormRequest
     return [
         'bootcamp_id.required' => 'Bootcamp id es required',
         'stack_id.required' => 'Stack is required',
-    ];
+        'bootcamp_id.numeric' => 'Bootcamp id accepts only integers',
+        'stack_id.numeric' => 'Stack id accepts only integers'
+        ];
 }
 }

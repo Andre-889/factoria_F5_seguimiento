@@ -22,13 +22,15 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'name' => 'required|max:100|string'
         ];
     }
     public function messages()
     {
     return[
         'name.required' => 'Category name is required',
+        'name.max' => 'Category name allows only 255 characters',
+        'name.string' => 'Category name accepts only strings'
     ];
     }
 }
