@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Stack;
 use App\Models\BootcampStack;
 use Illuminate\Http\Request;
+use App\Http\Requests\BootcampStackRequest;
 
 class BootcampStackController extends Controller
 {
@@ -27,7 +28,7 @@ class BootcampStackController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BootcampStackRequest $request)
     {
         $bootcampStack = new BootcampStack;
         $bootcampStack->bootcamp_id = $request->bootcamp_id;
