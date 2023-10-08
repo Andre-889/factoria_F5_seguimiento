@@ -64,7 +64,7 @@ class BootcampStackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BootcampStack $bootcampStack)
+    public function update(BootcampStackRequest $request, BootcampStack $bootcampStack)
     {
         $bootcampStack->bootcamp_id = $request->bootcamp_id;
         $bootcampStack->stack_id = $request->stack_id;
