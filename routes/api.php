@@ -22,12 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'categories'], function () {
-    Route::get('/', 'App\Http\Controllers\CategoryController@index');
-    Route::post('/', 'App\Http\Controllers\CategoryController@store');
-    Route::get('/{category}', 'App\Http\Controllers\CategoryController@show');
-    Route::put('/{category}', 'App\Http\Controllers\CategoryController@update');
-    Route::delete('/{category}', 'App\Http\Controllers\CategoryController@destroy');
-    });
+    Route::get('/', 'App\Http\Controllers\CategoryController@index')->name('categories.index');
+    Route::post('/', 'App\Http\Controllers\CategoryController@store')->name('categories.store');
+    Route::get('/{category}', 'App\Http\Controllers\CategoryController@show')->name('categories.show');
+    Route::put('/{category}', 'App\Http\Controllers\CategoryController@update')->name('categories.update');
+    Route::delete('/{category}', 'App\Http\Controllers\CategoryController@destroy')->name('categories.destroy');
+});
 
 Route::group(['prefix' => 'stacks'], function () {
     Route::get('/', 'App\Http\Controllers\StackController@index');
