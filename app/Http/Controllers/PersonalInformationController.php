@@ -35,7 +35,7 @@ class PersonalInformationController extends Controller
         $personalInformation->emergency_contact = $request->emergency_contact;
         $personalInformation->protection_data = $request->protection_data;
         $personalInformation->coder_commitment = $request->coder_commitment;
-        $personalInformation->coder_id = $request->coder_id;
+        $personalInformation->id = $request->id;
         $personalInformation->save();
 
         $data = [
@@ -74,7 +74,7 @@ class PersonalInformationController extends Controller
         $personalInformation->emergency_contact = $request->emergency_contact;
         $personalInformation->protection_data = $request->protection_data;
         $personalInformation->coder_commitment = $request->coder_commitment;
-        $personalInformation->coder_id = $request->coder_id;
+        $personalInformation->id = $request->id;
         $personalInformation->save();
 
         $data = [

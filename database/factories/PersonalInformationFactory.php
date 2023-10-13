@@ -22,7 +22,7 @@ class PersonalInformationFactory extends Factory
             'emergency_contact' => $this->faker->phoneNumber(),
             'protection_data' => $this->faker->text(200),
             'coder_commitment' => $this->faker->text(200),
-            'coder_id' => $this->faker->numberBetween(1, 10), 
+            'id' => $this->faker->unique(true)->randomNumber(),
         ];
     }
 }
