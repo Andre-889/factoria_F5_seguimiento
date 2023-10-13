@@ -72,11 +72,12 @@ Route::group(['prefix' => 'projectsWorkshop'], function () {
 
 
 Route::group(['prefix' => 'skills'], function () {
-    Route::get('/', 'App\Http\Controllers\SkillController@index');
-    Route::post('/', 'App\Http\Controllers\SkillController@store');
-    Route::get('/{skill}', 'App\Http\Controllers\SkillController@show');
-    Route::put('/{skill}', 'App\Http\Controllers\SkillController@update');
-    Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy');});
+    Route::get('/', 'App\Http\Controllers\SkillController@index')->name('skills.index');
+    Route::post('/', 'App\Http\Controllers\SkillController@store')->name('skills.store');
+    Route::get('/{skill}', 'App\Http\Controllers\SkillController@show')->name('skills.show');
+    Route::put('/{skill}', 'App\Http\Controllers\SkillController@update')->name('skills.update');
+    Route::delete('/{skill}', 'App\Http\Controllers\SkillController@destroy')->name('skills.destroy');;  
+    });
 
 
 Route::group(['prefix' => 'coderFeedbacks'], function () {
@@ -102,11 +103,11 @@ Route::group(['prefix' => 'personSkills'], function () {
     Route::delete('/{personSkill}', 'App\Http\Controllers\PersonSkillController@destroy');
 });
 Route::group(['prefix' => 'bootcampStacks'], function () {
-    Route::get('/', 'App\Http\Controllers\BootcampStackController@index');
-    Route::post('/', 'App\Http\Controllers\BootcampStackController@store');
-    Route::get('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@show');
-    Route::put('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@update');
-    Route::delete('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@destroy');
+    Route::get('/', 'App\Http\Controllers\BootcampStackController@index')->name('bootcampStacks.index');
+    Route::post('/', 'App\Http\Controllers\BootcampStackController@store')->name('bootcampStacks.store');
+    Route::get('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@show')->name('bootcampStacks.show');
+    Route::put('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@update')->name('bootcampStacks.update');
+    Route::delete('/{bootcampStack}', 'App\Http\Controllers\BootcampStackController@destroy')->name('bootcampStacks.destroy');
 });
 
 

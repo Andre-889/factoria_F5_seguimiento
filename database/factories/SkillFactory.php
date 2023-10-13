@@ -2,26 +2,22 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Skill;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Skill>
- */
 class SkillFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = \App\Models\Skill::class;
+
+    public function definition()
     {
         return [
-            'name' => $this->faker->unique()->word(), 
-            'category_id' => function () {
-                return factory(App\Models\Category::class)->create()->id;
-            },
+            'name' => $this->faker->unique()->word(),
+            'category_id' => Category::factory(), // Esto crea una nueva categoría cada vez
         ];
     }
 }
+
+
+
+
