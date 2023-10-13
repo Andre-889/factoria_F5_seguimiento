@@ -19,11 +19,11 @@ class ProfessionalInformationFactory extends Factory
     {
         return [
             'cv' => $this->faker->imageUrl(), 
-            'person_id' => $this->faker->numberBetween(1, 10), 
+            'id' => $this->faker->unique(true)->randomNumber(), 
             'is_working' => $this->faker->boolean, 
             'linkedin' => $this->faker->url,
             'is_studying' => $this->faker->boolean, 
-            'next_bootcamp' => $this->faker->date(), 
+            'next_bootcamp' => $this->faker->boolean, 
             'github' => $this->faker->url, 
         ];
     }

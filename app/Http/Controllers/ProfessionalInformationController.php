@@ -31,8 +31,8 @@ class ProfessionalInformationController extends Controller
     public function store(Request $request)
     {
         $professionalInformation = new ProfessionalInformation;
+        $professionalInformation->id = $request->id;
         $professionalInformation->cv = $request->cv;
-        $professionalInformation->person_id = $request->person_id;
         $professionalInformation->is_working = $request->is_working;
         $professionalInformation->linkedin = $request->linkedin;
         $professionalInformation->is_studying = $request->is_studying;
@@ -72,7 +72,7 @@ class ProfessionalInformationController extends Controller
     public function update(Request $request, ProfessionalInformation $professionalInformation)
     {
         $professionalInformation->cv = $request->cv;
-        $professionalInformation->person_id = $request->person_id;
+        $professionalInformation->id = $request->id;
         $professionalInformation->is_working = $request->is_working;
         $professionalInformation->linkedin = $request->linkedin;
         $professionalInformation->is_studying = $request->is_studying;
