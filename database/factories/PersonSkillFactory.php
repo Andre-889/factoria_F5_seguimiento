@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\PersonSkill;
+use App\Models\Skill;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PersonSkill>
@@ -17,12 +18,12 @@ class PersonSkillFactory extends Factory
      */
     public function definition(): array
     {
+        $skill = Skill::inRandomOrder()->first();
+
         return [
             'person_id' => $this->faker->numberBetween(1, 10), 
-            'skill_id' => function () {
-                return factory(App\Models\Skill::class)->create()->id;
-            },
-            'level' => $this->faker->randomElement(['beginner', 'intermediate', 'advanced']),
+            'skill_id' => $skill ? $skill->id : Skill::factory()->create()->id,
+            'level' => $this->faker->numberBetween(1, 7),
         ];
     }
 }
