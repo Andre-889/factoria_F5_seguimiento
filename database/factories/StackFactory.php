@@ -2,26 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Skill;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Stack;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Stack>
- */
 class StackFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = \App\Models\Stack::class;
+
+    public function definition()
     {
         return [
-            'name' => $this->faker->unique()->word(), 
-            'skill_id' => function () {
-                return factory(App\Models\Skill::class)->create()->id;
-            },
+            'name' => $this->faker->unique()->word(),
+            'skill_id' => Skill::factory(), // Esto crea una nueva skill cada vez
         ];
     }
 }

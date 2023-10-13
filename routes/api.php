@@ -30,11 +30,11 @@ Route::group(['prefix' => 'categories'], function () {
 });
 
 Route::group(['prefix' => 'stacks'], function () {
-    Route::get('/', 'App\Http\Controllers\StackController@index');
-    Route::post('/', 'App\Http\Controllers\StackController@store');
-    Route::get('/{stack}', 'App\Http\Controllers\StackController@show');
-    Route::put('/{stack}', 'App\Http\Controllers\StackController@update');
-    Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy');
+    Route::get('/', 'App\Http\Controllers\StackController@index')->name('stacks.index');
+    Route::post('/', 'App\Http\Controllers\StackController@store')->name('stacks.store');
+    Route::get('/{stack}', 'App\Http\Controllers\StackController@show')->name('stacks.show');
+    Route::put('/{stack}', 'App\Http\Controllers\StackController@update')->name('stacks.update');
+    Route::delete('/{stack}', 'App\Http\Controllers\StackController@destroy')->name('stacks.destroy');
 });
 
 Route::group(['prefix' => 'evaluations'], function () {
