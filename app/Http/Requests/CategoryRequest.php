@@ -29,7 +29,7 @@ class CategoryRequest extends FormRequest
     {
     return[
         'name.required' => 'Category name is required',
-        'name.max' => 'Category name allows only 255 characters',
+        'name.max' => 'Category name allows only 100 characters',
         'name.string' => 'Category name accepts only strings'
     ];
     }

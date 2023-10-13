@@ -36,8 +36,8 @@ class BootcampStackRequest extends FormRequest
     return [
         'bootcamp_id.required' => 'Bootcamp id es required',
         'stack_id.required' => 'Stack is required',
-        'bootcamp_id.numeric' => 'Bootcamp id accepts only integers',
-        'stack_id.numeric' => 'Stack id accepts only integers'
+        'bootcamp_id.integer' => 'Bootcamp id accepts only integers',
+        'stack_id.integer' => 'Stack id accepts only integers'
         ];
 }
 }
