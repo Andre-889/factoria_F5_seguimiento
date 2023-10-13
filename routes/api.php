@@ -55,11 +55,11 @@ Route::group(['prefix' => 'evaluationStack'], function () {
     });
 
 Route::group(['prefix' => 'personalInformation'], function () {
-    Route::get('/', 'App\Http\Controllers\PersonalInformationController@index');
-    Route::post('/', 'App\Http\Controllers\PersonalInformationController@store');
-    Route::get('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@show');
-    Route::put('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@update');
-    Route::delete('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@destroy');
+    Route::get('/', 'App\Http\Controllers\PersonalInformationController@index')->name('personalInformation.index');
+    Route::post('/', 'App\Http\Controllers\PersonalInformationController@store')->name('personalInformation.store');
+    Route::get('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@show')->name('personalInformation.show');
+    Route::put('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@update')->name('personalInformation.update');
+    Route::delete('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@destroy')->name('personalInformation.destroy');
     });
 
 Route::group(['prefix' => 'projectsWorkshop'], function () {
