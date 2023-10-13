@@ -81,11 +81,11 @@ Route::group(['prefix' => 'skills'], function () {
 
 
 Route::group(['prefix' => 'coderFeedbacks'], function () {
-    Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index');
-    Route::post('/', 'App\Http\Controllers\CoderFeedbackController@store');
-    Route::get('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@show');
-    Route::put('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@update');
-    Route::delete('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@destroy');
+    Route::get('/', 'App\Http\Controllers\CoderFeedbackController@index')->name('coderFeedbacks.index');
+    Route::post('/', 'App\Http\Controllers\CoderFeedbackController@store')->name('coderFeedbacks.store');
+    Route::get('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@show')->name('coderFeedbacks.show');
+    Route::put('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@update')->name('coderFeedbacks.update');
+    Route::delete('/{coderFeedback}', 'App\Http\Controllers\CoderFeedbackController@destroy')->name('coderFeedbacks.destroy');
 });
 Route::group(['prefix' => 'professionalInformations'], function () {
     Route::get('/', 'App\Http\Controllers\ProfessionalInformationController@index')->name('professionalInformations.index');
