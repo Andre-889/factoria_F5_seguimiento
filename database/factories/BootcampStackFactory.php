@@ -2,21 +2,21 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\BootcampStack;
+use App\Models\Stack;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BootcampStackFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = BootcampStack::class;
+
+    public function definition()
     {
+        $stack = Stack::inRandomOrder()->first();
+
         return [
-            'bootcamp_id' => $this->faker->numberBetween(1, 100), 
-            'stack_id' => $this->faker->numberBetween(1, 100), 
+            'bootcamp_id' => $this->faker->numberBetween(1, 100),
+            'stack_id' => $stack ? $stack->id : Stack::factory()->create()->id,
         ];
     }
 }
