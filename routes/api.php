@@ -38,11 +38,11 @@ Route::group(['prefix' => 'stacks'], function () {
 });
 
 Route::group(['prefix' => 'evaluations'], function () {
-    Route::get('/', 'App\Http\Controllers\EvaluationController@index');
-    Route::post('/', 'App\Http\Controllers\EvaluationController@store');
-    Route::get('/{evaluation}', 'App\Http\Controllers\EvaluationController@show');
-    Route::put('/{evaluation}', 'App\Http\Controllers\EvaluationController@update');
-    Route::delete('/{evaluation}', 'App\Http\Controllers\EvaluationController@destroy');
+    Route::get('/', 'App\Http\Controllers\EvaluationController@index')->name('evaluations.index');
+    Route::post('/', 'App\Http\Controllers\EvaluationController@store')->name('evaluations.store');
+    Route::get('/{evaluation}', 'App\Http\Controllers\EvaluationController@show')->name('evaluations.show');
+    Route::put('/{evaluation}', 'App\Http\Controllers\EvaluationController@update')->name('evaluations.update');
+    Route::delete('/{evaluation}', 'App\Http\Controllers\EvaluationController@destroy')->name('evaluations.destroy');
     });
     
 
