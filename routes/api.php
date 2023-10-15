@@ -46,12 +46,12 @@ Route::group(['prefix' => 'evaluations'], function () {
     });
     
 
-Route::group(['prefix' => 'evaluationStack'], function () {
-    Route::get('/', 'App\Http\Controllers\EvaluationStackController@index');
-    Route::post('/', 'App\Http\Controllers\EvaluationStackController@store');
-    Route::get('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@show');
-    Route::put('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@update');
-    Route::delete('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@destroy');
+Route::group(['prefix' => 'evaluationStacks'], function () {
+    Route::get('/', 'App\Http\Controllers\EvaluationStackController@index')->name('evaluationStacks.index');
+    Route::post('/', 'App\Http\Controllers\EvaluationStackController@store')->name('evaluationStacks.store');
+    Route::get('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@show')->name('evaluationStacks.show');
+    Route::put('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@update')->name('evaluationStacks.update');
+    Route::delete('/{evaluationStack}', 'App\Http\Controllers\EvaluationStackController@destroy')->name('evaluationStacks.destroy');
     });
 
 Route::group(['prefix' => 'personalInformation'], function () {
