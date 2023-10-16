@@ -62,12 +62,12 @@ Route::group(['prefix' => 'personalInformation'], function () {
     Route::delete('/{personalInformation}', 'App\Http\Controllers\PersonalInformationController@destroy')->name('personalInformation.destroy');
     });
 
-Route::group(['prefix' => 'projectsWorkshop'], function () {
-    Route::get('/', 'App\Http\Controllers\ProjectsWorkshopController@index');
-    Route::post('/', 'App\Http\Controllers\ProjectsWorkshopController@store');
-    Route::get('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@show');
-    Route::put('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@update');
-    Route::delete('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@destroy');
+Route::group(['prefix' => 'projectsWorkshops'], function () {
+    Route::get('/', 'App\Http\Controllers\ProjectsWorkshopController@index')->name('projectsWorkshops.index');
+    Route::post('/', 'App\Http\Controllers\ProjectsWorkshopController@store')->name('projectsWorkshops.store');
+    Route::get('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@show')->name('projectsWorkshops.show');
+    Route::put('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@update')->name('projectsWorkshops.update');
+    Route::delete('/{projectsWorkshop}', 'App\Http\Controllers\ProjectsWorkshopController@destroy')->name('projectsWorkshops.destroy');
     });
 
 
