@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('personal_informations', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('photo');
-            $table->Integer('emergency_contact');
+            $table->bigInteger('emergency_contact');
             $table->string('protection_data');
             $table->string('coder_commitment');
             $table->bigInteger('coder_id')->unique();

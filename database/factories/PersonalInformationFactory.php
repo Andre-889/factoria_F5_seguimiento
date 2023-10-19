@@ -19,7 +19,7 @@ class PersonalInformationFactory extends Factory
     {
         return [
             'photo' => $this->faker->imageUrl(),
-            'emergency_contact' => $this->faker->phoneNumber(),
+            'emergency_contact' => $this->faker->randomNumber(9, true),
             'protection_data' => $this->faker->text(200),
             'coder_commitment' => $this->faker->text(200),
             'id' => $this->faker->unique(true)->randomNumber(),

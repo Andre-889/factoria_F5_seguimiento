@@ -19,7 +19,7 @@ class EvaluationFactory extends Factory
     {
         return [
             'date' => $this->faker->date, 
-            'type' => $this->faker->randomElement(['midterm', 'final']), 
+            'type' => $this->faker->randomElement(['EVALUACION', 'CO-EVALUACION', 'AUTO-EVALUACION']), 
             'mean' => $this->faker->randomFloat(2, 0, 100), 
             'person_id' => $this->faker->numberBetween(1, 10), 
             'user_id' => $this->faker->numberBetween(1, 10), 
