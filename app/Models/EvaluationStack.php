@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class EvaluationStack extends Model
 {
+    use HasFactory;
     protected $table = "evaluation_stack";
 
     public function stacks(): BelongsToMany
