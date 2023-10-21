@@ -23,6 +23,7 @@ public function test_it_can_create_a_projects_workshop()
         'person_id' => 1,
         'project_name' => 'Proyecto Uno',
         'observations' => 'Sin observaciones',
+        'user_id' => 'María',
         'submission_date' => '2023-12-12'
     ];
     $response = $this->postJson(route('projectsWorkshops.store'), $projectsWorkshopData);
@@ -46,6 +47,7 @@ public function test_it_can_update_a_projects_workshop()
         'person_id' => 2,
         'project_name' => 'Proyecto Dos',
         'observations' => 'Sin observaciones',
+        'user_id' => 'Manu',
         'submission_date' => '2023-12-12'
     ];
     $response = $this->putJson(route('projectsWorkshops.update', $projectsWorkshop->id), $newData);

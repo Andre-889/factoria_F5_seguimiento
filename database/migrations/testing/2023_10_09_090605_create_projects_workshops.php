@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('person_id');
             $table->string('project_name');
             $table->string('observations');
+            $table->bigInteger('user_id');
             $table->date('submission_date');           
             $table->timestamps();
         });
