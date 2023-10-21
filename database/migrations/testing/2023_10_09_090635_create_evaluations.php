@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_informations', function (Blueprint $table) {
-            $table->id()->bigInteger()->unique();
-            $table->string('photo');
-            $table->bigInteger('emergency_contact');
-            $table->string('protection_data');
-            $table->string('coder_commitment');
+        Schema::create('evaluations', function (Blueprint $table) {
+            $table->id();
+            $table->date('date');
+            $table->enum('type', ['EVALUACION', 'CO-EVALUACION', 'AUTO-EVALUACION']);
+            $table->double('mean', 4, 2);
+            $table->bigInteger('user_id');
+            $table->bigInteger('person_id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_information');
+        Schema::dropIfExists('evaluations');
     }
 };

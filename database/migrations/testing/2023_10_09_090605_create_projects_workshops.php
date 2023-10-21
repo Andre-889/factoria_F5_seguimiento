@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_informations', function (Blueprint $table) {
-            $table->id()->bigInteger()->unique();
-            $table->string('photo');
-            $table->bigInteger('emergency_contact');
-            $table->string('protection_data');
-            $table->string('coder_commitment');
+        Schema::create('projects_workshops', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->bigInteger('person_id');
+            $table->string('project_name');
+            $table->string('observations');
+            $table->date('submission_date');           
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_information');
+        Schema::dropIfExists('projects_workshops');
     }
 };

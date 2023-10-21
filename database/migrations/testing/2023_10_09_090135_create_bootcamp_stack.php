@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_informations', function (Blueprint $table) {
-            $table->id()->bigInteger()->unique();
-            $table->string('photo');
-            $table->bigInteger('emergency_contact');
-            $table->string('protection_data');
-            $table->string('coder_commitment');
+        Schema::create('bootcamp_stack', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->bigInteger('bootcamp_id');
+
+            $table->unsignedBigInteger('stack_id');
+            $table->foreign('stack_id')->references('id')->on('stacks');
+
             $table->timestamps();
+
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_information');
+        Schema::dropIfExists('bootcamp_stack');
     }
 };

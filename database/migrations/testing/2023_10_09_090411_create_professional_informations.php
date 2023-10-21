@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('professional_informations', function (Blueprint $table) {
-            $table->id()->bigInteger()->unique();
+            $table->id()->autoIncrement();
             $table->string('cv')->nullable();
+            $table->bigInteger('person_id')->unique();
             $table->boolean('is_working');
             $table->string('linkedin')->nullable();
             $table->boolean('is_studying');

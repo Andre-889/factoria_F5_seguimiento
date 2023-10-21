@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('personal_informations', function (Blueprint $table) {
-            $table->id()->bigInteger()->unique();
+            $table->id()->autoIncrement();
             $table->string('photo');
             $table->bigInteger('emergency_contact');
             $table->string('protection_data');
             $table->string('coder_commitment');
+            $table->bigInteger('coder_id')->unique();
             $table->timestamps();
         });
     }
