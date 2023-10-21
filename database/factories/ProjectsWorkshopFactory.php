@@ -20,7 +20,8 @@ class ProjectsWorkshopFactory extends Factory
         return [
             'person_id' => $this->faker->numberBetween(1, 10), 
             'project_name' => $this->faker->sentence(), 
-            'observations' => $this->faker->text(200), 
+            'observations' => $this->faker->text(200),
+            'user_id' => $this->faker->numberBetween(1, 4),  
             'submission_date' => $this->faker->date(), 
         ];
     }

@@ -34,6 +34,7 @@ class ProjectsWorkshopController extends Controller
         $projectsWorkshop->person_id = $request->person_id;
         $projectsWorkshop->project_name = $request->project_name;
         $projectsWorkshop->observations = $request->observations;
+        $projectsWorkshop->user_id = $request->user_id;
         $projectsWorkshop->submission_date = $request->submission_date;        
         $projectsWorkshop->save();
 
@@ -72,6 +73,7 @@ class ProjectsWorkshopController extends Controller
         $projectsWorkshop->person_id = $request->person_id;
         $projectsWorkshop->project_name = $request->project_name;
         $projectsWorkshop->observations = $request->observations;
+        $projectsWorkshop->user_id = $request->user_id;
         $projectsWorkshop->submission_date = $request->submission_date;        
         $projectsWorkshop->save();
 
