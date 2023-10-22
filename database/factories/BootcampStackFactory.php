@@ -15,7 +15,7 @@ class BootcampStackFactory extends Factory
         $stack = Stack::inRandomOrder()->first();
 
         return [
-            'bootcamp_id' => $this->faker->numberBetween(1, 100),
+            'bootcamp_id' => $this->faker->numberBetween(2, 5),
             'stack_id' => $stack ? $stack->id : Stack::factory()->create()->id,
         ];
     }
