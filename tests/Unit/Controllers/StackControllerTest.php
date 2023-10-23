@@ -20,7 +20,7 @@ class StackControllerTest extends TestCase
         $response = $this->getJson(route('stacks.index'));
 
         $response->assertStatus(200);
-        //$response->assertJson($skills->toArray());
+        
     }
 
     /** @test */
@@ -47,7 +47,7 @@ class StackControllerTest extends TestCase
         $response = $this->getJson(route('stacks.show', $stack->id));
 
         $response->assertStatus(200);
-        //$response->assertJson($skill->toArray());
+        
     }
 
     /** @test */
@@ -57,7 +57,7 @@ class StackControllerTest extends TestCase
 
         $newData = [
             'name' => 'Updated Stack',
-            'skill_id' => $stack->skill_id, // Mantener la misma categoría
+            'skill_id' => $stack->skill_id, 
         ];
 
         $response = $this->putJson(route('stacks.update', $stack->id), $newData);

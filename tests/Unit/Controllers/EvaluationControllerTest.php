@@ -5,30 +5,19 @@ namespace Tests\Unit\Controllers;
 use Tests\TestCase;
 use App\Http\Controllers\EvaluationStackController;
 use App\Models\Evaluation;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class EvaluationControllerTest extends TestCase
 {
-    //use RefreshDatabase;
 
     /** @test */
     public function it_can_get_all_evaluation()
     {
-        // Crear evaluation de prueba usando la fábrica
         $evaluation = Evaluation::factory()->create();
 
-        // Hacer una solicitud GET a la ruta index del controlador
         $response = $this->getJson(route('evaluations.index'));
 
-
-        // Verificar que la respuesta sea exitosa (código de respuesta 200)
         $response->assertStatus(200);
 
-        // Verificar que el número correcto de evaluation se devuelva en la respuesta
-        //$response->assertJsonCount(5);
-
-        // Verificar que las evaluation devueltas sean las mismas que las que creamos
-        //$response->assertJson($evaluation->toArray());
     }
 
     /** @test */
@@ -57,7 +46,7 @@ class EvaluationControllerTest extends TestCase
         $response = $this->getJson(route('evaluations.show', $evaluation->id));
 
         $response->assertStatus(200);
-        //$response->assertJson($Evaluation->toArray());
+       
     }
 
       /** @test */

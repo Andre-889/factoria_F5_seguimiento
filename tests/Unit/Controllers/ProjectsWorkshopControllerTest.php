@@ -17,8 +17,6 @@ public function test_it_can_get_all_projects_workshop()
 
 public function test_it_can_create_a_projects_workshop()
 {
-    // $projectsWorkshop = ProjectsWorkshop::factory()->create();
-
     $projectsWorkshopData = [
         'person_id' => 1,
         'project_name' => 'Proyecto Uno',

@@ -20,7 +20,6 @@ class SkillControllerTest extends TestCase
         $response = $this->getJson(route('skills.index'));
 
         $response->assertStatus(200);
-        //$response->assertJson($skills->toArray());
     }
 
     /** @test */
@@ -47,7 +46,7 @@ class SkillControllerTest extends TestCase
         $response = $this->getJson(route('skills.show', $skill->id));
 
         $response->assertStatus(200);
-        //$response->assertJson($skill->toArray());
+
     }
 
     /** @test */
@@ -57,7 +56,7 @@ class SkillControllerTest extends TestCase
 
         $newData = [
             'name' => 'Updated Skill',
-            'category_id' => $skill->category_id, // Mantener la misma categoría
+            'category_id' => $skill->category_id, 
         ];
 
         $response = $this->putJson(route('skills.update', $skill->id), $newData);
