@@ -23,10 +23,9 @@ class PersonalInformationRequest extends FormRequest
     {
         return [
                 'photo' => 'nullable|string',
-                'emergency_contact' => 'required|integer|max:9',
+                'emergency_contact' => 'required|integer',
                 'protection_data' => 'nullable|string',
                 'coder_commitment' => 'required|string',
-
         ];
     }
 }
