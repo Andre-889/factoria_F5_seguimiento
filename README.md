@@ -1,66 +1,139 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# FACTORÍA F5 -Tracking API-
 
-## About Laravel
+This API is an integral component of the **[FACTORÍA F5 - CRM](https://github.com/RocioAlonsoDev/factoria-f5-crm)** project, designed to manage and track student data and progress as they participate in Factoría F5's bootcamps and complete their courses. This README will help you understand how to use the API effectively and get started with it.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
+- Students Personal and Professional information Management: Easily manage student information, including personal details, course and professional information.
+- Progress Tracking: Keep track of student progress, such as assignments completed, grades and feedback.
+- Bootcamp Stacks and Skills Management: Create categories, stacks and skills and assign it to bootcamps.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
+- Laravel 10 (PHP) 
+- PHPUnit
+- XAMPP
+- MySql
+- Composer
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Follow these instructions to get the FACTORÍA F5 - Tracking API up and running on your local machine.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+```bash
+  composer install
+```
+    
+Copy and set the `.env` file with your database information. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+  php artisan migrate:fresh --seed
+```
+## Running Tests
 
-### Premium Partners
+To run tests, run the following command
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+  php artisan test
+```
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Documentation
 
-## Code of Conduct
+This API provides access to data related to bootcamp, category, coderFeedback, evaluation, evaluationStack, personalInformation, personSkill, professionalInformations, projectsWorkshop, skill, and stack for consumption from the shared central repository "factory-f5-crm".
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Main Endpoints
 
-## Security Vulnerabilities
+#### Categories:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+ - '/categories' - Get the list of categories
+- '/categories/{id}' - Get specific details of a category by its Id
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Stacks:
+- '/stacks' - Get the list of stacks
+- '/stacks/{id}' - Get details of a specific stack by its Id
+- ...
+#### Evaluations:
+- '/evaluations' - Get the list of evaluations
+- '/evaluations/{id}' - Get details of a specific evaluation by its Id
+- ...
+#### EvaluationStack:
+- '/evaluationStack' - Get the list of stacks for each evaluation
+- '/evaluationStack/{id}' - Get stacks of a specific evaluation by its Id
+- ...
+#### PersonalInformation:
+- '/personalInformation' - Get the list of personal information for coders
+- '/personalInformation/{id}' - Get specific information for a coder by their Id
+- ...
+#### ProjectsWorkshops:
+- '/projectsWorkshops' - Get the list of projects for each coder
+- '/projectsWorkshops/{id}' - Get information on projects for a specific coder by their Id
+- ...
+
+#### Skills:
+- '/skills' - Get the list of skills
+- '/skills/{id}' - Get each skill by its Id
+- ...
+
+CoderFeedbacks:
+- '/coderFeedbacks' - Get the list of feedbacks for each coder
+- '/coderFeedbacks/{id}' - Get feedbacks for a specific coder by their Id
+- ...
+
+ProfessionalInformations:
+
+- '/professionalInformations' - Get the list of professional information for each coder
+- '/professionalInformations/{id}' - Get professional information for a specific coder by their id
+- ...
+#### PersonSkills:
+- '/personSkills' - Get the list of skills for each coder
+- '/personSkills/{id}' - Get the skills of a specific coder by their Id
+- ...
+#### BootcampStacks:
+- '/bootcampStacks' - Get the list of stacks for each bootcamp
+- '/bootcampStacks/{id}' - Get stacks for a specific bootcamp by its Id
+- ...
+
+### Authentication
+The API currently does NOT require authentication to access the data. However, if authentication is implemented in the future, additional details will be provided here.
+
+### Usage Examples
+Get evaluations for a coder:
+```bash
+  GET /api/evaluations/{id}
+```
+Get personal information for a coder:
+```bash
+  GET /api/personalInformations/{id}
+```
+Create a new stack:
+```bash
+  POST /api/stacks
+```
+Request Body
+
+{
+    
+    "id": 1,
+    "date": "2022-01-10",
+    "type": "SELF-EVALUATION",
+    "mean": 29.01,
+    "user_id": 2,
+    "person_id": 4,
+    "created_at": "2023-10-23T09:44:12.000000Z",
+    "updated_at": "2023-10-23T09:44:12.000000Z"    
+},
+
+
+## Desarrollado por
+
+- [@Ninetthe](https://github.com/Ninetthe)
+- [@BeatrizCano](https://github.com/BeatrizCano)
+- [@Andre-889 ](https://github.com/Andre-889)
+- [@RocioAlonsoDev](https://github.com/RocioAlonsoDev)
+- [@mireiavh](https://github.com/mireiavh)
+
+
