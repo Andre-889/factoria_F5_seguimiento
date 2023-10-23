@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CoderFeedbackRequest;
 use App\Models\CoderFeedback;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class CoderFeedbackController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CoderFeedbackRequest $request)
     {
         $coderFeedback = new CoderFeedback;
         $coderFeedback->text = $request->text;
@@ -67,7 +68,7 @@ class CoderFeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CoderFeedback $coderFeedback)
+    public function update(CoderFeedbackRequest $request, CoderFeedback $coderFeedback)
     {
         $coderFeedback->text=$request->text;
         $coderFeedback->person_id=$request->person_id;

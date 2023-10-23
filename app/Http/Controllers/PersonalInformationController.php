@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonalInformationRequest;
 use App\Models\PersonalInformation;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class PersonalInformationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PersonalInformationRequest $request)
     {
         $personalInformation = new PersonalInformation;
         $personalInformation->photo = $request->photo;
@@ -68,7 +69,7 @@ class PersonalInformationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PersonalInformation $personalInformation)
+    public function update(PersonalInformationRequest $request, PersonalInformation $personalInformation)
     {
         $personalInformation->photo = $request->photo;
         $personalInformation->emergency_contact = $request->emergency_contact;

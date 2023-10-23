@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\EvaluationRequest;
 use Illuminate\Http\Request;
 use App\Models\Evaluation;
 
@@ -13,7 +15,7 @@ class EvaluationController extends Controller
         return response()->json($evaluation, 200);
     }
 
-    public function store(Request $request)
+    public function store(EvaluationRequest $request)
     {
         $evaluation = new Evaluation;
         $evaluation->date = $request->date;
@@ -38,7 +40,7 @@ class EvaluationController extends Controller
         return response()->json($evaluation, 200); 
     }
 
-    public function update(Request $request, Evaluation $evaluation)
+    public function update(EvaluationRequest $request, Evaluation $evaluation)
     {
         $evaluation->date = $request->date;
         $evaluation->type = $request->type;

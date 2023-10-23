@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Stack;
 use App\Models\BootcampStack;
 use Illuminate\Http\Request;
+use App\Http\Requests\BootcampStackRequest;
 
 class BootcampStackController extends Controller
 {
@@ -27,7 +28,7 @@ class BootcampStackController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BootcampStackRequest $request)
     {
         $bootcampStack = new BootcampStack;
         $bootcampStack->bootcamp_id = $request->bootcamp_id;
@@ -45,12 +46,15 @@ class BootcampStackController extends Controller
      */
     public function show($id)
     {
-        $bootcampStack = BootcampStack::find($id); 
+        $bootcampStack = BootcampStack::with('stacks')->find($id);
+        
         if (!$bootcampStack) {
-            return response()->json(['message' => 'No find the bootcampStack'], 404); 
+            return response()->json(['message' => 'BootcampStack not found'], 404);
         }
+    
         return response()->json($bootcampStack, 200);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -63,7 +67,7 @@ class BootcampStackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BootcampStack $bootcampStack)
+    public function update(BootcampStackRequest $request, BootcampStack $bootcampStack)
     {
         $bootcampStack->bootcamp_id = $request->bootcamp_id;
         $bootcampStack->stack_id = $request->stack_id;
