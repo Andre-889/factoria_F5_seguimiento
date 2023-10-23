@@ -25,7 +25,7 @@ class EvaluationRequest extends FormRequest
                 'date' => 'date',
                 'type' => 'required',
                 'person_id' => 'required|integer',
-                'mean' => 'nullable|floatmax:2',
+                'mean' => 'nullable|decimal:1,2',
                 'user_id' => 'required|integer'
         ];
     }
@@ -37,9 +37,9 @@ class EvaluationRequest extends FormRequest
             'type.required' => 'Type is required and accepts EVALUACION, CO-EVALUACION, AUTO-EVALUACION',
             'person_id.required' => 'Person id is required',
             'person_id.integer' => 'Person id accepts only integers',
-            'mean.floatmax' => 'Mean accepts numbers with decimals, two decimals max',
+            'mean' => 'Mean accepts numbers with decimals, two decimals max',
             'user_id.required' => 'User id is required',
-            'user_id.integer' => 'User id accepts only inteegers',
+            'user_id.integer' => 'User id accepts only integers',
             ];
     }
 }

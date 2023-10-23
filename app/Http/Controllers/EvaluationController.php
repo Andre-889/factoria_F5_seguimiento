@@ -15,7 +15,7 @@ class EvaluationController extends Controller
         return response()->json($evaluation, 200);
     }
 
-    public function store(Evaluation $request)
+    public function store(EvaluationRequest $request)
     {
         $evaluation = new Evaluation;
         $evaluation->date = $request->date;
