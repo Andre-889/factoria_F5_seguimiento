@@ -46,12 +46,15 @@ class BootcampStackController extends Controller
      */
     public function show($id)
     {
-        $bootcampStack = BootcampStack::find($id); 
+        $bootcampStack = BootcampStack::with('stacks')->find($id);
+        
         if (!$bootcampStack) {
-            return response()->json(['message' => 'No find the bootcampStack'], 404); 
+            return response()->json(['message' => 'BootcampStack not found'], 404);
         }
+    
         return response()->json($bootcampStack, 200);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
