@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvaluationStackRequest;
 use Illuminate\Http\Request;
 use App\Models\EvaluationStack;
 use App\Models\Stack;
@@ -16,7 +17,7 @@ class EvaluationStackController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(EvaluationStackRequest $request)
     {
         $evaluationStack = new EvaluationStack;
         $evaluationStack->evaluation_id = $request->evaluation_id;
@@ -31,13 +32,13 @@ class EvaluationStackController extends Controller
 
         return response()->json($data, 201);
     }
-public function show( $id)
+    public function show( $id)
     {
         $evaluationStack = EvaluationStack::with(['stacks', 'evaluations'])->find($id);
         return response()->json($evaluationStack, 200);
     }
 
-    public function update(Request $request, EvaluationStack $evaluationStack)
+    public function update(EvaluationStackRequest $request, EvaluationStack $evaluationStack)
     {
         $evaluationStack->evaluation_id = $request->evaluation_id;
         $evaluationStack->stack_id = $request->stack_id;
